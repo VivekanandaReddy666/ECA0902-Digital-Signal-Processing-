@@ -1,1 +1,12 @@
+clc;  
+clear; 
+close all; 
+ fp = 1000;        
+ fs = 4000;        
+N  = 50;         
+wc = fp/(fs/2);  
+b_hamm = fir1(N, wc, 'low', hamming(N+1));
+disp(b_hamm'); 
+ figure; freqz(b_hamm,1); 
+ title('Low-pass FIR using Hamming Window'); 
 
