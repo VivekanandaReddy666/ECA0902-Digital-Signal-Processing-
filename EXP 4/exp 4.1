@@ -1,1 +1,22 @@
+clc;  
+clear;
+close all; 
+fp = 1000;       
+cfs = 4000;       
+N  = 50;         
+wc = fp/(fs/2);  
+b_rect = fir1(N, wc, 'low', rectwin(N+1)); 
+disp('--- Rectangular Window Coefficients ---');
+disp(b_rect'); 
+b_hamm = fir1(N, wc, 'low', hamming(N+1)); 
+disp('--- Hamming Window Coefficients ---'); 
+disp(b_hamm'); 
+b_hann = fir1(N, wc, 'low', hanning(N+1));
+disp('--- Hanning Window Coefficients ---'); disp(b_hann'); 
+figure; freqz(b_rect,1); 
+title('Low-pass FIR using Rectangular Window'); 
+figure; freqz(b_hamm,1); 
+title('Low-pass FIR using Hamming Window');
+figure; freqz(b_hann,1); 
+title('Low-pass FIR using Hanning Window'); 
 
